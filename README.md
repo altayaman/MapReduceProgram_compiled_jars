@@ -60,7 +60,7 @@ Note: Your jar may fail with such a following error: </br>
 		at java.util.jar.JarFile.<init>(JarFile.java:91)
 		at org.apache.hadoop.util.RunJar.run(RunJar.java:158)
 
-That may be becuase jar file has default rw-r--r-- permission, and you can try to change it to rwx-rwx-rwx by: </br>
+That may be becuase jar file has default `rw-r--r--` permission, and you can try to change it to `rwx-rwx-rwx` by: </br>
 
 	chmod 777 <your jar file>
 
