@@ -16,10 +16,12 @@ Note: This example is demonstrated on 'hduser_1' username account on my local Li
 1 - 
 Before running jar file in Hadoop, we should create and move input text file into HDFS. </br>
 For that we should first create HDFS home directory: </br>
-&nbsp;&nbsp;&nbsp;&nbsp;hadoop fs -mkdir -p /user/hdfsHomeDir
+
+	hadoop fs -mkdir -p /user/hdfsHomeDir
 
 2 - 
 Then create any file with text in 'hduser_1' user which is /home/hduser_1: </br>
+
 	cat>textFile.txt
 
 Then type something, and then press CTRL+d to save it. </br>
@@ -27,16 +29,20 @@ Then type something, and then press CTRL+d to save it. </br>
 
 3 - 
 Copy the file to hdfs directory use: </br>
+
 	hadoop fs -copyFromLocal /home/hduser_1/textFile.txt /user/hdfsHomeDir/textInput.txt
 
 and to check if there is any files in that hdfs directory use: </br>
+
 	hadoop fs -ls /user/hdfsHomeDir
 
 and if you want to delete that text file later: </br>
+
 	hdfs dfs -rm -r hdfs:/user/hdfsHomeDir/textFile.txt
 
 4 - 
 Then, you can run wordcount jar file on textFile: </br>
+
 	hadoop jar /home/altay/Desktop/WordCount_2.jar /user/hdfsHomeDir WordCountOutput
 
 job will create 'WordCountOutput' folder in 'user' and will put the results there. </br>
@@ -55,6 +61,7 @@ Note: Your jar may fail with such a following error: </br>
 		at org.apache.hadoop.util.RunJar.run(RunJar.java:158)
 
 That may be becuase jar file has default rw-r--r-- permission, and you can try to change it to rwx-rwx-rwx by: </br>
+
 	chmod 777 <your jar file>
 
 and then run your jar for text file again. </br>
@@ -65,6 +72,7 @@ e.g.  </br>
 
 5 - 
 After job is done, we can look up if there is any result file in 'WordCountOutput' folder: </br>
+
 	hadoop fs -ls /user/hduser_1/WordCountOutput
 
 you should see something similar to the following: </br>
@@ -79,8 +87,10 @@ it means you have 'part-r-00000' as output result file.
 
 6 -
 To look up the results of your job saved in that file: </br>
+
 	hadoop fs -cat /user/hduser_1/WordCountOutput/part-r-00000
 
 7 - 
 To delete output folder or file: </br>
+
 	hdfs dfs -rm -r /user/hduser_1/WordCountOutput
