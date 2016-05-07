@@ -1,4 +1,4 @@
-#### Ready-to-use JAR files which are compiled from my project repositories:
+#### Current repo has 4 jar files which are compiled from my following project repositories:
 <ol>
 <li> MapReduce_WordCount </li>
 <li> MapReduce_TotalWordsCount </li>
@@ -8,8 +8,8 @@
 
 --------------------------------------------------------------------------------------------------------------
 
-THIS EXAMPLE SHOWS HOW TO USE WordCount_2.jar
-This example shows how to use WordCount_2.jar
+THIS EXAMPLE SHOWS HOW TO USE WordCount_2.jar to count the words from text by groups. </br>
+Text should be stored 
 
 --------------------------------------------------------------------------------------------------------------
 
