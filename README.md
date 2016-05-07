@@ -1,4 +1,4 @@
-#### Current repo has 4 jar files which are compiled from my following MapReduce project repositories:
+##### Current repo has 4 jar files which are compiled from my following MapReduce project repositories:
 <ol>
 <li> MapReduce_WordCount </li>
 <li> MapReduce_TotalWordsCount </li>
