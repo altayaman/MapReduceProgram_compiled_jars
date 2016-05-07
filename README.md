@@ -8,8 +8,7 @@
 
 --------------------------------------------------------------------------------------------------------------
 
-The following steps show how to use WordCount_2.jar to count the words by groups from text file </br>
-which will be stored in HDFS.
+The following steps show how to use WordCount_2.jar to count the words by groups from text file which will be stored in HDFS.
 
 --------------------------------------------------------------------------------------------------------------
 
