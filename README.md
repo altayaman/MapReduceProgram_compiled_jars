@@ -1,9 +1,9 @@
 #### Ready-to-use JAR files which are compiled from my project repositories:
 <ol>
-<li> 1 - MapReduce_WordCount </li>
-<li> 2 - MapReduce_TotalWordsCount </li>
-<li> 3 - MapReduce_FirstLetterCount </li>
-<li> 4 - MapReduce_WordLengthCount </li>
+<li> MapReduce_WordCount </li>
+<li> MapReduce_TotalWordsCount </li>
+<li> MapReduce_FirstLetterCount </li>
+<li> MapReduce_WordLengthCount </li>
 </ol>
 
 --------------------------------------------------------------------------------------------------------------
