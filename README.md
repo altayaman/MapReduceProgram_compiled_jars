@@ -1,5 +1,4 @@
-#### Ready-to-use JAR files.
-#### Compiled from my project repositories:
+#### Ready-to-use JAR files which are compiled from my project repositories:
 1 - MapReduce_WordCount
 2 - MapReduce_TotalWordsCount
 3 - MapReduce_FirstLetterCount
