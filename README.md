@@ -16,7 +16,7 @@ Note: This example is demonstrated on 'hduser_1' username account on my local Li
 1 - 
 Before running jar file in Hadoop, we should create and move input text file into HDFS. </br>
 For that we should first create HDFS home directory: </br>
->	hadoop fs -mkdir -p /user/hdfsHomeDir
+    hadoop fs -mkdir -p /user/hdfsHomeDir
 
 2 - 
 Then create any file with text in 'hduser_1' user which is /home/hduser_1: </br>
