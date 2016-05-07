@@ -10,12 +10,13 @@
 
 The following steps show how to use WordCount_2.jar to count the words by groups from text file which will be stored in HDFS.
 
+Note: This example is demonstrated on 'hduser_1' username account on my local Linux machine where my Hadoop is installed.
 --------------------------------------------------------------------------------------------------------------
 
 
 1 - 
-Before running job in Hadoop, we should copy or move input file into HDFS. 
-For that we should create HDFS home directory first:
+Before running jar file in Hadoop, we should create and move input text file into HDFS.
+For that we should first create HDFS home directory:
 	hadoop fs -mkdir -p /user/hdfsHomeDir
 
 2 - 
