@@ -14,34 +14,34 @@ The following steps show how to use WordCount_2.jar to count the words by groups
 Note: This example is demonstrated on 'hduser_1' username account on my local Linux machine where my Hadoop is installed.
 
 1 - 
-Before running jar file in Hadoop, we should create and move input text file into HDFS.
-For that we should first create HDFS home directory:
+Before running jar file in Hadoop, we should create and move input text file into HDFS. </br>
+For that we should first create HDFS home directory: </br>
 	hadoop fs -mkdir -p /user/hdfsHomeDir
 
 2 - 
-Then create any file with text in 'hduser_1' user which is /home/hduser_1:
+Then create any file with text in 'hduser_1' user which is /home/hduser_1: </br>
 	cat>textFile.txt
 
-Then type something, and then press CTRL+d to save it.
+Then type something, and then press CTRL+d to save it. </br>
 
 
 3 - 
-Copy the file to hdfs directory use:
+Copy the file to hdfs directory use: </br>
 	hadoop fs -copyFromLocal /home/hduser_1/textFile.txt /user/hdfsHomeDir/textInput.txt
 
-and to check if there is any files in that hdfs directory use:
+and to check if there is any files in that hdfs directory use: </br>
 	hadoop fs -ls /user/hdfsHomeDir
 
-and if you want to delete that text file later:
+and if you want to delete that text file later: </br>
 	hdfs dfs -rm -r hdfs:/user/hdfsHomeDir/textFile.txt
 
 4 - 
-Then, you can run wordcount jar file on textFile:
+Then, you can run wordcount jar file on textFile: </br>
 	hadoop jar /home/altay/Desktop/WordCount_2.jar /user/hdfsHomeDir WordCountOutput
 
-job will create 'WordCountOutput' folder in 'user' and will put the results there.
+job will create 'WordCountOutput' folder in 'user' and will put the results there. </br>
 
-Note: Your jar may fail with such a following error:
+Note: Your jar may fail with such a following error: </br>
 
 	Exception in thread "main" java.io.IOException: Error opening job jar: /home/hduser_1/wordcount.jar
 		at org.apache.hadoop.util.RunJar.run(RunJar.java:160)
@@ -54,20 +54,20 @@ Note: Your jar may fail with such a following error:
 		at java.util.jar.JarFile.<init>(JarFile.java:91)
 		at org.apache.hadoop.util.RunJar.run(RunJar.java:158)
 
-That may be becuase jar file has default rw-r--r-- permission, and you can try to change it to rwx-rwx-rwx by:
+That may be becuase jar file has default rw-r--r-- permission, and you can try to change it to rwx-rwx-rwx by: </br>
 	chmod 777 <your jar file>
 
-and then run your jar for text file again.
-e.g. 
+and then run your jar for text file again. </br>
+e.g.  </br>
 
 	hadoop jar /home/altay/Desktop/WordCount_2.jar /user/hdfsHomeDir WordCountOutput
 
 
 5 - 
-After job is done, we can look up if there is any result file in 'WordCountOutput' folder:
+After job is done, we can look up if there is any result file in 'WordCountOutput' folder: </br>
 	hadoop fs -ls /user/hduser_1/WordCountOutput
 
-you should see something similar to the following:
+you should see something similar to the following: </br>
 
 	15/10/08 20:03:27 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
 	Found 2 items
@@ -78,9 +78,9 @@ it means you have 'part-r-00000' as output result file.
 
 
 6 -
-To look up the results of your job saved in that file:
+To look up the results of your job saved in that file: </br>
 	hadoop fs -cat /user/hduser_1/WordCountOutput/part-r-00000
 
 7 - 
-To delete output folder or file:
+To delete output folder or file: </br>
 	hdfs dfs -rm -r /user/hduser_1/WordCountOutput
