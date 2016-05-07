@@ -11,39 +11,40 @@
 The following steps show how to use WordCount_2.jar to count the words by groups from text file which will be stored in HDFS.
 
 --------------------------------------------------------------------------------------------------------------
-Note: This example is demonstrated on 'hduser_1' username account on my local Linux machine where my Hadoop is installed.
+Note: </br>
+This example is demonstrated on `hduser_1` username account on my local Linux machine where my Hadoop is installed. </br>
 
 1 - 
 Before running jar file in Hadoop, we should create and move input text file into HDFS. </br>
-For that we should first create HDFS home directory: </br>
+For that, you should first switch to `hduser_1` user in terminal and create HDFS home directory `hdfsHomeDir`: </br>
 
 	hadoop fs -mkdir -p /user/hdfsHomeDir
 
 2 - 
-Then create any file with text in 'hduser_1' user which is /home/hduser_1: </br>
+Then run the following command to create `textFile.txt` file in `hduser_1` user which you may find it in `/home/hduser_1`: </br>
 
 	cat>textFile.txt
 
-Then type something, and then press CTRL+d to save it. </br>
+Type something and then press CTRL+d to save it. </br>
 
 
 3 - 
-Copy the file to hdfs directory use: </br>
+Copy the file to HDFS directory: </br>
 
-	hadoop fs -copyFromLocal /home/hduser_1/textFile.txt /user/hdfsHomeDir/textInput.txt
+	hadoop fs -copyFromLocal /home/hduser_1/textFile.txt /user/hdfsHomeDir/textFile.txt
 
-and to check if there is any files in that hdfs directory use: </br>
+and to check if your `textFile.txt` is copied to hdfs directory: </br>
 
 	hadoop fs -ls /user/hdfsHomeDir
 
-and if you want to delete that text file later: </br>
+and if you want to delete that text file by any reason: </br>
 
 	hdfs dfs -rm -r hdfs:/user/hdfsHomeDir/textFile.txt
 
 4 - 
-Then, you can run wordcount jar file on textFile: </br>
+Then, you can paste `WordCount_2.jar` file into Desktop folder of `hduser_1` and run it on `textFile.txt`: </br>
 
-	hadoop jar /home/altay/Desktop/WordCount_2.jar /user/hdfsHomeDir WordCountOutput
+	hadoop jar /home/hduser_1/Desktop/WordCount_2.jar /user/hdfsHomeDir/textFile.txt WordCountOutput
 
 job will create 'WordCountOutput' folder in 'user' and will put the results there. </br>
 
@@ -62,7 +63,7 @@ Note: Your jar may fail with such a following error: </br>
 
 That may be becuase jar file has default `rw-r--r--` permission, and you can try to change it to `rwx-rwx-rwx` by: </br>
 
-	chmod 777 <your jar file>
+	chmod 777 /home/hduser_1/Desktop/WordCount_2.jar
 
 and then run your jar for text file again. </br>
 e.g.  </br>
